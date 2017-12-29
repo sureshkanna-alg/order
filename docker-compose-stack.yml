@@ -1,0 +1,28 @@
+version: "3"
+
+services:
+
+  proxy:
+    image: kammana/customer
+    ports:
+      - 2017:8080
+    networks:
+      - javahome-network
+    environment:
+      - LISTENER_ADDRESS=swarm-listener
+      - MODE=swarm
+    deploy:
+      replicas: 3
+  swarm-listener:
+    image: kammana/order
+    networks:
+      - javahome-network
+    environment:
+      - ORDER_HOST_NAME=order
+    deploy:
+      replicas: 2
+      placement:
+        constraints: [node.role == manager]
+networks:
+  javahome-network:
+    external: true
