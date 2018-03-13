@@ -3,7 +3,7 @@ version: "3"
 services:
 
   proxy:
-    image: kammana/customer
+    image: sureshkanna/customer
     ports:
       - 2017:8080
     networks:
@@ -14,7 +14,7 @@ services:
     deploy:
       replicas: 3
   swarm-listener:
-    image: kammana/order
+    image: sureshkanna/order
     networks:
       - javahome-network
     environment:
