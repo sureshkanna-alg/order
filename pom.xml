@@ -34,7 +34,7 @@
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>0.4.11</version>
                 <configuration>
-                    <imageName>sureshkanna/order</imageName>
+                    <imageName>sureshkanna/order:0.0.5</imageName>
                     <dockerDirectory>src/main/docker</dockerDirectory>
                     <serverId>docker-hub</serverId>
                     <resources>
